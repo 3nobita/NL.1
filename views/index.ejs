@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .category-container {
+      border: 2px solid #ccc;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 10px;
+      background-color: #fff;
+    }
+    .category-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .property-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .property-item {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+    }
+    .property-item img {
+      max-width: 150px;
+      height: auto;
+      margin-right: 10px;
+    }
+    .property-item div {
+      flex: 1;
+    }
+    .property-item strong {
+      display: block;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Properties <a href="/admin">Add</a></h1>
+
+    <div class="category-container">
+      <div class="category-title">Spotlight</div>
+      <ul class="property-list">
+        <% properties.spotlight.forEach(property => { %>
+          <li class="property-item">
+            <% if (property.imageUrl) { %>
+              <img src="<%= property.imageUrl %>" alt="Property Image">
+            <% } else { %>
+              <img src="placeholder-image-url.jpg" alt="Placeholder Image">
+            <% } %>
+            <div>
+              <strong><%= property.name %></strong>
+              <p><%= property.description %></p>
+              <p>$<%= property.price %></p>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+
+    <!-- Repeat the same block for other categories -->
+    <!-- Featured Developers -->
+    <div class="category-container">
+      <div class="category-title">Featured Developers</div>
+      <ul class="property-list">
+        <% properties.featuredDevelopers.forEach(property => { %>
+          <li class="property-item">
+            <% if (property.imageUrl) { %>
+              <img src="<%= property.imageUrl %>" alt="Property Image">
+            <% } else { %>
+              <img src="placeholder-image-url.jpg" alt="Placeholder Image">
+            <% } %>
+            <div>
+              <strong><%= property.name %></strong>
+              <p><%= property.description %></p>
+              <p>$<%= property.price %></p>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+
+    <!-- Trending Residences -->
+    <div class="category-container">
+      <div class="category-title">Trending Residences</div>
+      <ul class="property-list">
+        <% properties.trendingResidences.forEach(property => { %>
+          <li class="property-item">
+            <% if (property.imageUrl) { %>
+              <img src="<%= property.imageUrl %>" alt="Property Image">
+            <% } else { %>
+              <img src="placeholder-image-url.jpg" alt="Placeholder Image">
+            <% } %>
+            <div>
+              <strong><%= property.name %></strong>
+              <p><%= property.description %></p>
+              <p>$<%= property.price %></p>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+
+    <!-- SIGNATURE Developments -->
+    <div class="category-container">
+      <div class="category-title">SIGNATURE Developments</div>
+      <ul class="property-list">
+        <% properties.signatureDevelopments.forEach(property => { %>
+          <li class="property-item">
+            <% if (property.imageUrl) { %>
+              <img src="<%= property.imageUrl %>" alt="Property Image">
+            <% } else { %>
+              <img src="placeholder-image-url.jpg" alt="Placeholder Image">
+            <% } %>
+            <div>
+              <strong><%= property.name %></strong>
+              <p><%= property.description %></p>
+              <p>$<%= property.price %></p>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+
+    <!-- Popular Zones -->
+    <div class="category-container">
+      <div class="category-title">Popular Zones</div>
+      <ul class="property-list">
+        <% properties.popularZones.forEach(property => { %>
+          <li class="property-item">
+            <% if (property.imageUrl) { %>
+              <img src="<%= property.imageUrl %>" alt="Property Image">
+            <% } else { %>
+              <img src="placeholder-image-url.jpg" alt="Placeholder Image">
+            <% } %>
+            <div>
+              <strong><%= property.name %></strong>
+              <p><%= property.description %></p>
+              <p>$<%= property.price %></p>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
