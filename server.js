@@ -21,12 +21,22 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+const mongoURI = process.env.MONGODB_URI;
+
+if (!mongoURI) {
+  console.error('MongoDB URI is not defined in environment variables');
+  process.exit(1);
+}
+
+mongoose.connect(mongoURI)
+  .then(() => {
+    console.log('MongoDB connected successfully');
+    // Additional setup or server start can go here
+  })
+  .catch(err => {
+    console.error('MongoDB connection error:', err);
+    process.exit(1);
+  });
 
 // Admin access middleware
 const isAdmin = (req, res, next) => {
